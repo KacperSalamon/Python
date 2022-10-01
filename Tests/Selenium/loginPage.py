@@ -85,24 +85,6 @@ def verifyLeftBarSearch():
     myInfo = driver.find_element(By.XPATH, "/html/body/div/div[1]/div[1]/aside/nav/div[2]/ul/li/a")
     myInfo.click()
     
-def testowa():
-    
-     
-    
-    
-    
-    
-    
-
-
-    
-
-    
-
-    
-
-    
-    
-
+  
 
 
