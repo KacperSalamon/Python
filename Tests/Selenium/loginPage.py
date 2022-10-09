@@ -85,6 +85,10 @@ def verifyLeftBarSearch():
     myInfo = driver.find_element(By.XPATH, "/html/body/div/div[1]/div[1]/aside/nav/div[2]/ul/li/a")
     myInfo.click()
     
-  
+def addNickName():
+    nickname = driver.find_element(By.XPATH, "/html/body/div/div[1]/div[2]/div[2]/div/div/div/div[2]/div[1]/form/div[1]/div[2]/div/div/div[2]/input")
+    nickname.send_keys("Test Boy")
+    save = driver.find_element(By.XPATH, "/html/body/div/div[1]/div[2]/div[2]/div/div/div/div[2]/div[1]/form/div[5]/button")
+    driver.execute_script("arguments[0].scrollIntoView();", save)
 
 
