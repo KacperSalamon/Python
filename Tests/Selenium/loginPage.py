@@ -91,4 +91,18 @@ def addNickName():
     save = driver.find_element(By.XPATH, "/html/body/div/div[1]/div[2]/div[2]/div/div/div/div[2]/div[1]/form/div[5]/button")
     driver.execute_script("arguments[0].scrollIntoView();", save)
 
+def dashBoardPage():
+    dashBoard = driver.find_element(By.XPATH, "/html/body/div/div[1]/div[1]/aside/nav/div[2]/ul/li[8]")
+    dashBoard.click()
+    
+def getCookies()
+    cookies = driver.get_cookies()
+    cookies_dict = {}
+    for cookie in cookies:
+        cookies_dict[cookie["name"]] = cookie["value"]
+    print(cookies_dict)
+        
+def closePage():
+    driver.close()
+    
 
