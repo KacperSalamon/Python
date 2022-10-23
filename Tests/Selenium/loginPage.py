@@ -95,7 +95,7 @@ def dashBoardPage():
     dashBoard = driver.find_element(By.XPATH, "/html/body/div/div[1]/div[1]/aside/nav/div[2]/ul/li[8]")
     dashBoard.click()
     
-def getCookies()
+def getCookies():
     cookies = driver.get_cookies()
     cookies_dict = {}
     for cookie in cookies:
