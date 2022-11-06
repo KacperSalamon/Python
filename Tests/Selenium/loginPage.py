@@ -1,7 +1,9 @@
+from ast import arguments
 from telnetlib import WILL
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
+from selenium.webdriver import ActionChains
 import time
 import random
 
@@ -90,7 +92,8 @@ def addNickName():
     nickname.send_keys("Test Boy")
     save = driver.find_element(By.XPATH, "/html/body/div/div[1]/div[2]/div[2]/div/div/div/div[2]/div[1]/form/div[5]/button")
     driver.execute_script("arguments[0].scrollIntoView();", save)
-
+    save.save_screenshot('nickName' + str(random.randint(0,101)) + '.png')
+    
 def dashBoardPage():
     dashBoard = driver.find_element(By.XPATH, "/html/body/div/div[1]/div[1]/aside/nav/div[2]/ul/li[8]")
     dashBoard.click()
@@ -101,8 +104,27 @@ def getCookies():
     for cookie in cookies:
         cookies_dict[cookie["name"]] = cookie["value"]
     print(cookies_dict)
-        
-def closePage():
-    driver.close()
-    
 
+def checkTime():
+    time = driver.find_element(By.XPATH, "/html/body/div/div[1]/div[1]/aside/nav/div[2]/ul/li[8]/a")
+    time.click()
+    clock = driver.find_element(By.XPATH, "/html/body/div/div[1]/div[2]/div[2]/div/div[1]/div/div[2]/div[1]/div[2]/button")
+    clock.click()
+    calendar = driver.find_element(By.XPATH, "/html/body/div/div[1]/div[2]/div[2]/div/div/div/form/div[1]/div/div[2]/div/div[2]/div/div/i")
+    calendar.click()
+    chooseDay = driver.find_element(By.LINK_TEXT, "Today")
+    chooseDay.click()
+    comment = driver.find_element(By.XPATH, "/html/body/div/div[1]/div[2]/div[2]/div/div/div/form/div[2]/div/div/div/div[2]/textarea")
+    comment.send_keys("Extra work for client")
+    outBtn = driver.find_element(By.CSS_SELECTOR, 'button[type="submit"]')
+    outBtn.click()
+    
+def logOut():
+    dropDownBar = driver.find_element(By.XPATH, "/html/body/div/div[1]/div[1]/header/div[1]/div[2]/ul/li")
+    action = ActionChains(driver)
+    action.move_to_element(dropDownBar).perform()
+    finish = driver.find_element(By.LINK_TEXT, "Logout")
+    finish.click()
+    
+def closePage():
+    driver.close()  
