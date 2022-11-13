@@ -114,6 +114,18 @@ def checkTime():
     calendar.click()
     chooseDay = driver.find_element(By.LINK_TEXT, "Today")
     chooseDay.click()
+    hourInput = driver.find_element(By.XPATH, "/html/body/div/div[1]/div[2]/div[2]/div/div/div/form/div[1]/div/div[2]/div/div[2]/div/div[2]/div[1]/input")
+    hourClick = driver.find_element(By.XPATH, "/html/body/div/div[1]/div[2]/div[2]/div/div/div/form/div[1]/div/div[2]/div/div[2]/div/div[1]/i")
+    
+    while hourInput.text != "20" :
+        hourClick.click()
+    
+    minutesClick = driver.find_element(By.XPATH, "/html/body/div/div[1]/div[2]/div[2]/div/div/div/form/div[1]/div/div[2]/div/div[2]/div/div[2]/div[3]/i[1]")
+    minutesInput = driver.find_element(By.XPATH, "/html/body/div/div[1]/div[2]/div[2]/div/div/div/form/div[1]/div/div[2]/div/div[2]/div/div[2]/div[3]/input")
+    
+    while minutesInput.text != "05" :
+        minutesClick.click()
+     
     comment = driver.find_element(By.XPATH, "/html/body/div/div[1]/div[2]/div[2]/div/div/div/form/div[2]/div/div/div/div[2]/textarea")
     comment.send_keys("Extra work for client")
     outBtn = driver.find_element(By.CSS_SELECTOR, 'button[type="submit"]')
