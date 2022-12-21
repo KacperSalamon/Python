@@ -49,6 +49,23 @@ def editProfile():
     save = driver.find_element(By.CSS_SELECTOR, 'button[type="submit"]')
     save.click()
     
+def emoji():
+    setStatus = driver.find_element(By.CLASS_NAME, "g-emoji")
+    setStatus.click()
+    time.sleep(1) #we sleep time because the class name & element will not change in HTML, so I slept for 1s and setStatus will be click again BUT already in Box
+    setStatus.click() 
+    filterEmoji = driver.find_element(By.XPATH, "/html/body/div[1]/div[5]/main/div[2]/div/div[1]/div/div[2]/div[1]/div[1]/div/div/div/details/details-dialog/form/div[2]/emoji-picker/tab-container/div/div[1]/input")
+    filterEmoji.send_keys("Snake")
+    snakeEmoji = driver.find_element(By.XPATH, "/html/body/div[1]/div[5]/main/div[2]/div/div[1]/div/div[2]/div[1]/div[1]/div/div/div/details/details-dialog/form/div[2]/emoji-picker/tab-container/div/div[12]/fuzzy-list/ul/li[1]/button/g-emoji")
+    snakeEmoji.double_click()
+    confirmStatus = driver.find_element(By.XPATH, "/html/body/div[1]/div[5]/main/div[2]/div/div[1]/div/div[2]/div[1]/div[1]/div/div/div/details/details-dialog/form/div[3]/button[1]")
+    confirmStatus.click()
+
+def pythonRepo():
+    element1 = driver.find_element(By.XPATH, "/html/body/div[1]/div[5]/div/main/turbo-frame/div/div/div/div[3]/div[1]/div[3]/div[3]/div[1]/div[9]")
+    element2 = driver.find_element(By.XPATH, "/html/body/div[1]/div[5]/div/main/turbo-frame/div/div/div/div[3]/div[1]/div[3]/div[3]/div[1]/div[8]")
+    action = ActionChains(driver)
+    action.drag_and_drop(element1, element2) #this action will not work - we couldn't drag and drop ONE script/file to another inside
     
 #to be continue :)
 
