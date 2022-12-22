@@ -66,6 +66,33 @@ def pythonRepo():
     element2 = driver.find_element(By.XPATH, "/html/body/div[1]/div[5]/div/main/turbo-frame/div/div/div/div[3]/div[1]/div[3]/div[3]/div[1]/div[8]")
     action = ActionChains(driver)
     action.drag_and_drop(element1, element2) #this action will not work - we couldn't drag and drop ONE script/file to another inside
+ 
+commit = driver.find_element(By.ID, "commit-summary-input")    
+save = driver.find_element(By.ID, "submit-file") 
+inputText = driver.find_element(By.XPATH, "/html/body/div[1]/div[5]/div/main/turbo-frame/div/div/div[2]/form[2]/div/file-attachment/blob-editor/div[2]/div/div/div[5]")
+     
+def createFile():
+    seleniumTests = driver.find_element(By.XPATH, "/html/body/div[1]/div[5]/div/main/turbo-frame/div/div/div/div[3]/div[1]/div[3]/div[3]/div[1]/div[2]/div[2]/span/a")
+    seleniumTests.click()
+    addFile = driver.find_element(By.XPATH, "/html/body/div[1]/div[5]/div/main/turbo-frame/div/div/div[1]/div[4]/details[1]/summary/span[1]").click()
+    newFile = driver.find_element(By.XPATH, "/html/body/div[1]/div[5]/div/main/turbo-frame/div/div/div[1]/div[4]/details[1]/div/ul/li[3]/form/button").click()
+    nameOfFile = driver.find_element(By.CSS_SELECTOR, 'input[type="text"]')
+    nameOfFile.send_keys("TestFile")
+    time.sleep(2)
+    #inputText = driver.find_element(By.XPATH, "/html/body/div[1]/div[5]/div/main/turbo-frame/div/div/div[2]/form[2]/div/file-attachment/blob-editor/div[2]/div/div/div[5]")
+    inputText.send_keys("test test test")
+    #commit = driver.find_element(By.ID, "commit-summary-input")
+    commit.send_keys("Test commit - 1st")
+    #createNewFile = driver.find_element(By.ID, "submit-file")
+    save.click()
     
+def updateFile():
+    testFile = driver.find_element(By.XPATH, "/html/body/div[1]/div[5]/div/main/turbo-frame/div/div/div/div[3]/div[3]/div/div[3]/div[2]/span/a").click()
+    editFile = driver.find_element(By.XPATH, "/html/body/div[1]/div[5]/div/main/turbo-frame/div/div/div[4]/div[1]/div[2]/div[2]/div[1]/form/button").click()
+    input
+    time.sleep(2)
+    inputText.send_keys("test2 test2 test2")
+    commit.send_keys("Test commit - second")
+    save.click()
 #to be continue :)
 
